@@ -22,6 +22,9 @@ class Penjurusan extends Super
         $this->edit           = true;
         $this->delete         = true;
         $this->crud;
+
+        $this->load->helper("evalmath.class");
+        $this->load->helper('calculate');
     }
 
     function index(){
@@ -99,13 +102,32 @@ class Penjurusan extends Super
 
         // var_dump($this->input->post()); exit();
         $id_tahun_ajaran = $this->input->post('tahun_ajaran');
+        $this->db->where('nilai_siswa.id_tahun_ajaran',$id_tahun_ajaran);
+        $getSiswa = $this->db->get('nilai_siswa');
+        $totalSiswa = $getSiswa->num_rows();
+        $rowSiswa = $getSiswa->result();
 
-        // $data['hasil'] = "hasil";
         //1. konversi hasil analisa
         $getSiswa = $this->langkahPertama($id_tahun_ajaran); 
 
-        var_dump($getSiswa); exit();
 
+        //2. Menghitung Matriks
+        $a = 0;
+        foreach ($rowSiswa as $key) {
+                $r = "";
+                for ($b=0; $b < $totalSiswa; $b++) { 
+                    
+                    $r .=  "(".$getSiswa[$b][$a]." * ".$getSiswa[$b][$a].")";
+                    if($b == ($totalSiswa - 1)){
+                        $r .= "";
+                    } else{
+                        $r .= "+";
+                    }
+                }
+                $R[$a] = cobaHitung($r);
+            $a++;
+        }
+        var_dump($R); exit();
 
         $data['tahun_ajaran']=$this->db->get('tahun_ajaran')->result();
         $this->load->view('admin/'.$this->session->userdata('theme').'/v_index',$data);
@@ -120,23 +142,24 @@ class Penjurusan extends Super
         $totalSiswa = $getSiswa->num_rows();
         $rowSiswa = $getSiswa->result();
 
-        $i = 1;
+        $i = 0;
         $rows = "";
         foreach ($rowSiswa as $siswa) {
+
 
             $nilaiIpa[$i] = $this->konversiNilaiIpa($siswa->nilai_ipa);
             $nilaiIps[$i] = $this->konversiNilaiIps($siswa->nilai_ips);
             $nilaiPeminatan[$i] = $this->konversiNilaiPeminatan($siswa->nilai_minat_jurusan);
             $nilaiIq[$i] = $this->konversiNilaiIq($siswa->nilai_iq);
 
-            // $rows .= $nilaiIpa[$i]." Ips".$nilaiIps[$i]; 
+            $nilaiKonversiSiswa[$i] = array('0' => $nilaiIpa[$i], '1' => $nilaiIps[$i], '2' => $nilaiPeminatan[$i], '3' => $nilaiIq[$i]); 
             
 
             $i++;
         }
 
         // var_dump($nilai); exit();
-        return $nilaiIq;
+        return $nilaiKonversiSiswa;
     }
 
     public function konversiNilaiIpa($nilaiIpa){
@@ -204,7 +227,6 @@ class Penjurusan extends Super
             }
         }
 
-        //dari asep
         return $nilaiKonversiIq;
     }
 }
