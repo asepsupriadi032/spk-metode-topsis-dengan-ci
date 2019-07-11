@@ -204,7 +204,7 @@ class Penjurusan extends Super
             }
         }
 
-
+        //dari asep
         return $nilaiKonversiIq;
     }
 }
