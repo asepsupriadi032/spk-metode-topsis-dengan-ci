@@ -124,10 +124,21 @@ class Penjurusan extends Super
                         $r .= "+";
                     }
                 }
-                $R[$a] = cobaHitung($r);
+                $R[$a] = ROUND(sqrt(cobaHitung($r)),2);
             $a++;
         }
-        var_dump($R); exit();
+
+        $c = 0;
+        
+        foreach ($rowSiswa as $row) {
+           
+            for ($d=0; $d < $totalSiswa; $d++) { 
+                $matriks[$d][$c] = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+            }
+
+            $c++;
+        }
+        var_dump($matriks); exit();
 
         $data['tahun_ajaran']=$this->db->get('tahun_ajaran')->result();
         $this->load->view('admin/'.$this->session->userdata('theme').'/v_index',$data);
