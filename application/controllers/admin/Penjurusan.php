@@ -94,7 +94,7 @@ class Penjurusan extends Super
 
     public function prosesPenjurusan(){
 
-         $data = [];
+        $data = [];
         $data = array_merge($data, $this->generateBreadcumbs());
         $data = array_merge($data,$this->generateData());
         $this->generate();
@@ -106,6 +106,12 @@ class Penjurusan extends Super
         $getSiswa = $this->db->get('nilai_siswa');
         $totalSiswa = $getSiswa->num_rows();
         $rowSiswa = $getSiswa->result();
+
+        //bobot kriteria
+        $ipa = 1;
+        $ips = 1;
+        $peminatan = 0.75;
+        $iq = 0.5;
 
         //1. konversi hasil analisa
         $getSiswa = $this->langkahPertama($id_tahun_ajaran); 
@@ -133,12 +139,30 @@ class Penjurusan extends Super
         foreach ($rowSiswa as $row) {
            
             for ($d=0; $d < $totalSiswa; $d++) { 
-                $matriks[$d][$c] = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+                $matriks = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+
+                //menghitung matriks normalisasi yang terbobot
+                if($d=0){
+                    $hasil[$d][$c] = $matriks * $ipa;
+                }
+                    //elseif($d=1){
+                //     $hasil[$d][$c] = $matriks * $ips;   
+                // }elseif($d=2){
+                //     $hasil[$d][$c] = $matriks * $peminatan;   
+                // }elseif($d=3){
+                //     $hasil[$d][$c] = $matriks * $iq;   
+                // }
             }
 
             $c++;
         }
-        var_dump($matriks); exit();
+
+
+
+
+
+
+        var_dump($hasil); exit();
 
         $data['tahun_ajaran']=$this->db->get('tahun_ajaran')->result();
         $this->load->view('admin/'.$this->session->userdata('theme').'/v_index',$data);
