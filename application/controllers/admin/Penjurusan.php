@@ -94,29 +94,20 @@ class Penjurusan extends Super
 
     public function prosesPenjurusan(){
 
-        $data = [];
+         $data = [];
         $data = array_merge($data, $this->generateBreadcumbs());
         $data = array_merge($data,$this->generateData());
         $this->generate();
         $data['page'] = "prosesPenjurusan";
 
-        // var_dump($this->input->post()); exit();
         $id_tahun_ajaran = $this->input->post('tahun_ajaran');
         $this->db->where('nilai_siswa.id_tahun_ajaran',$id_tahun_ajaran);
         $getSiswa = $this->db->get('nilai_siswa');
         $totalSiswa = $getSiswa->num_rows();
         $rowSiswa = $getSiswa->result();
 
-        //bobot kriteria
-        $ipa = 1;
-        $ips = 1;
-        $peminatan = 0.75;
-        $iq = 0.5;
-
         //1. konversi hasil analisa
         $getSiswa = $this->langkahPertama($id_tahun_ajaran); 
-
-
         //2. Menghitung Matriks
         $a = 0;
         foreach ($rowSiswa as $key) {
@@ -139,30 +130,77 @@ class Penjurusan extends Super
         foreach ($rowSiswa as $row) {
            
             for ($d=0; $d < $totalSiswa; $d++) { 
-                $matriks = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+                if($c==0){
 
-                //menghitung matriks normalisasi yang terbobot
-                if($d=0){
-                    $hasil[$d][$c] = $matriks * $ipa;
+                    $matriks = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+                    $hasil[$d][$c] = cobaHitung($matriks."*1");
+                }elseif($c==1){
+                    $matriks = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+                    $hasil[$d][$c] = cobaHitung($matriks."*1");
+
+                }elseif($c==2){
+                    $matriks = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+                    $hasil[$d][$c] = cobaHitung($matriks."*0.75");
+
+                }elseif($c==3){
+                    $matriks = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
+                    $hasil[$d][$c] = cobaHitung($matriks."*0.5");
                 }
-                    //elseif($d=1){
-                //     $hasil[$d][$c] = $matriks * $ips;   
-                // }elseif($d=2){
-                //     $hasil[$d][$c] = $matriks * $peminatan;   
-                // }elseif($d=3){
-                //     $hasil[$d][$c] = $matriks * $iq;   
-                // }
+
+                // $matriks[$d][$c] = cobaHitung("(".$getSiswa[$d][$c]."/".$R[$c].")");
             }
 
             $c++;
         }
 
+        for ($i=0; $i < 4; $i++) {
+            for ($j=0; $j < $totalSiswa; $j++) { 
+                $kolom[$i][$j] = $hasil[$j][$i];
+             } 
+        }
 
+        for ($k=0; $k < 1; $k++) { //untuk mengambil a+ dan a-
+            for ($l=0; $l < 4; $l++) { //ambil berdasarkan jumlah kriteria
+                
+                $aMax[$k][$l] =max($kolom[$l]); 
+                $aMin[$k][$l] =min($kolom[$l]); 
+            }
+        }
 
+        //menghitung jarak solusi ideal D+ dan D-
+        $m = 0;
+        foreach ($rowSiswa as $key) {
+            // for ($n=0; $n < 2; $n++) { 
+                $hasilDPlus = "";
+                $hasilDMin = "";
+                for ($o=0; $o < 4; $o++) { 
+                   $hasilDPlus .= "((".$aMax[0][$o]."-".$kolom[$o][$m].")^2)";
+                   $hasilDMin .= "((".$aMin[0][$o]."-".$kolom[$o][$m].")^2)";
+                   if($o == 3 ){
+                        $hasilDPlus .= "";
+                        $hasilDMin .= "";
+                    } else{
 
+                        $hasilDPlus .= "+";
+                        $hasilDMin .= "+";
+                    }
+                }
+            // }
+            $dPlus[$m] = round(sqrt(cobaHitung($hasilDPlus)),2);
+            $dMin[$m] = round(sqrt(cobaHitung($hasilDMin)),2);
+            $m++;
+        }
 
+        //menghitung nilai preferensi setiap alternatif
+        $p = 0;
+        foreach ($rowSiswa as $key) {
+                $hasilAkhir = ROUND($dMin[$p]/($dMin[$p]+$dPlus[$p]),2);
+                
+                $this->inputHasil($key->id_siswa,$hasilAkhir);
+            $p++;
+        }
 
-        var_dump($hasil); exit();
+        redirect(base_url('admin/HasilPenjurusan'));
 
         $data['tahun_ajaran']=$this->db->get('tahun_ajaran')->result();
         $this->load->view('admin/'.$this->session->userdata('theme').'/v_index',$data);
@@ -263,5 +301,18 @@ class Penjurusan extends Super
         }
 
         return $nilaiKonversiIq;
+    }
+
+    public function inputHasil($id_siswa,$nilai){
+
+        if($nilai >= 0.6){
+            $hasil = "IPA";
+        }else{
+            $hasil = "IPS";
+        }
+        $this->db->set('id_siswa',$id_siswa);
+        $this->db->set('nilai',$nilai);
+        $this->db->set('hasil',$hasil);
+        return $this->db->insert('hasil_penjurusan');
     }
 }
