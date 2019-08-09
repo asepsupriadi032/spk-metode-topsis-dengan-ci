@@ -1,5 +1,18 @@
 <?php $this->load->view ("user/header") ?>
+<style type="text/css">
+  header.masthead .intro-text .intro-heading {
+    font-size: 45px; /*ukuran font header*/
+    font-weight: 700;
+    line-height: 75px;
+    margin-bottom: 50px;
+    font-family: Montserrat,-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif,'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji';
+}
 
+#mainNav .navbar-nav .nav-item .nav-link {
+    padding: 1.1em 1em !important;
+    /*font-weight: 700;*/
+}
+</style>
 
   <!-- Header -->
   <header class="masthead">
