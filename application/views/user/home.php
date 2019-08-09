@@ -10,7 +10,7 @@
 
 #mainNav .navbar-nav .nav-item .nav-link {
     padding: 1.1em 1em !important;
-    /*font-weight: 700;*/
+    font-weight: bold;
 }
 </style>
 
@@ -40,7 +40,7 @@
             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Sejarah</h4>
-          <p class="text-muted">Gagasan pendirian PKP di DKI Jakarta mendapat dukungan penuh tertuang dalam Surat Keputusan Gubernur DKI Jakarta  N. D. III.b.14/23/1973 Tanggal 18 April 1973 tentang Pengukuhan Pembentukan Pondok Karya Pembangunan DKI Jakarta sebagai sarana pendidikan dalam ruang lingkup Madrasah dan Pesantren. Didirikan Tahun 1988 dalam usianya yang ke 25,  SMA PKP telah terakreditasi A dan memperoleh sertifikat ISO 9001 : 2008.  Sampai dengan Tahun Ajaran  2013/2014  SMA PKP JIS telah meluluskan peserta didik sebanyak 3790 orang. Tiga tahun setelah berdirinya PKP, yaitu tanggal 8 April 1976 Gubernur KDKI Jakarta H. Ali Sadikin meresmikan Kampus PKP di atas areal lahan 18 hektar di Kelurahan Kelapa Dua Wetan Ciracas, Jakarta Timur. Tanggal 8 April ditetapkan sebagai Hari Lahir Kampus PKP DKI Jakarta.</p>
+          <p class="text-justify">Gagasan pendirian PKP di DKI Jakarta mendapat dukungan penuh tertuang dalam Surat Keputusan Gubernur DKI Jakarta  N. D. III.b.14/23/1973 Tanggal 18 April 1973 tentang Pengukuhan Pembentukan Pondok Karya Pembangunan DKI Jakarta sebagai sarana pendidikan dalam ruang lingkup Madrasah dan Pesantren. Didirikan Tahun 1988 dalam usianya yang ke 25,  SMA PKP telah terakreditasi A dan memperoleh sertifikat ISO 9001 : 2008.  Sampai dengan Tahun Ajaran  2013/2014  SMA PKP JIS telah meluluskan peserta didik sebanyak 3790 orang. Tiga tahun setelah berdirinya PKP, yaitu tanggal 8 April 1976 Gubernur KDKI Jakarta H. Ali Sadikin meresmikan Kampus PKP di atas areal lahan 18 hektar di Kelurahan Kelapa Dua Wetan Ciracas, Jakarta Timur. Tanggal 8 April ditetapkan sebagai Hari Lahir Kampus PKP DKI Jakarta.</p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
@@ -48,24 +48,73 @@
             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
           </span>
           <h4 class="service-heading">Visi</h4>
-          <p class="text-muted">Unggul dalam prestasi, taqwa dalam perilaku</p>
+          <p class="text-justify">Unggul dalam prestasi, taqwa dalam perilaku</p>
+          <h4 class="service-heading">Misi</h4>
+          <p class="text-justify">
+            <ol>
+              <li>Menumbuh kembangkan jati diri dan minat belajar</li>
+              <li>Melaksanakan pendidikan sesuai kurikulum</li>
+                <li>Meningkatkan kualitas pendidikan dan tenaga kependidikan</li>
+                <li>Menyediakan sarana prasarana pendukung pembelajaran</li>
+                <li>Meningkatkan keimanan dan ketaqwaan warga sekolah</li>
+                <li>Membudayakan perilaku akhlakul karimah</li>
+                <li>Meningkatkan kualitas pembelajaran</li>
+            </ol></p>
         </div>
         <div class="col-md-4">
           <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
           </span>
-          <h4 class="service-heading">Misi</h4>
-          <p class="text-muted">
-          	<ol style="color:#6c757d !important">
-          		<li>Menumbuh kembangkan jati diri dan minat belajar</li>
-          		<li>Melaksanakan pendidikan sesuai kurikulum</li>
-                <li>Meningkatkan kualitas pendidikan dan tenaga kependidikan</li>
-                <li>Menyediakan sarana prasarana pendukung pembelajaran</li>
-          	    <li>Meningkatkan keimanan dan ketaqwaan warga sekolah</li>
-          	    <li>Membudayakan perilaku akhlakul karimah</li>
-          	    <li>Meningkatkan kualitas pembelajaran</li>
-          	</ol>
+          <h4 class="service-heading">Struktur Organisasi</h4>
+          <p class="text-justify">
+          	<table class="table">
+             <tr>
+               <th>Kepala Sekolah</th>
+               <td>:</td>
+               <td>Drs. Yayat, WH. M.M.</td>
+             </tr>
+             <tr>
+               <th>Wakabid Kurikulum</th>
+               <td>:</td>
+               <td>Titik Retnaningsih, S.Pd</td>
+             </tr> 
+             <tr>
+             <th>Wakabid Kesiswaan</th>
+               <td>:</td>
+               <td>Suris, S.Pd. M.M.</td>
+             </tr>
+             <tr>
+             <th>Wakabid Sarana Prasarana</th>
+               <td>:</td>
+               <td>H. Rusnadi, S.Ag</td>
+               </tr>
+               <tr>
+             <th>Pembina Osis</th>
+               <td>:</td>
+               <td>Dra Sri Setyowati</td>
+               </tr>
+               <tr>
+             <th>BP/BK</th>
+               <td>:</td>
+               <td>Nurlaela P, S.Pd</td>
+             </tr>
+             <tr>
+             <th>Penanggungjawab Lab. IPA</th>
+               <td>:</td>
+               <td>Yayu Sri Rahayu, S.T</td>
+             </tr>
+             <tr>
+             <th>Koordinator Green House</th>
+               <td>:</td>
+               <td>Suraya Sari, S.Si</td>
+             </tr>
+             <tr>
+             <th>Laboran</th>
+               <td>:</td>
+               <td>Aulia Rahmawati, S.Pd</td>
+             </tr>
+            </table>
         </div>
       </div>
     </div>
@@ -359,7 +408,7 @@
   </section> -->
 
   <!-- Clients -->
-  <section class="py-5">
+<!--   <section class="py-5">
     <div class="container">
       <div class="row">
         <div class="col-md-3 col-sm-6">
@@ -384,7 +433,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- Contact -->
   <section class="page-section" id="kontak">
