@@ -13,8 +13,8 @@ class Dashboard extends CI_Controller {
 
     function index(){
         $data['active']     = 'dash';
-        $data['judul_1']    = 'Dashboard';
-        $data['judul_2']    = 'Selamat Datang';
+        $data['judul_1']    = 'Selamat Datang';
+        $data['judul_2']    = 'Admin';
         $data['page']       = 'v_dashboard';
         $data['menu']       = $this->Menus->generateMenu();
         $data['breadcumbs'] = array(

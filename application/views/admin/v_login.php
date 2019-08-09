@@ -45,8 +45,8 @@ License URL: http://creativecommons.org/licenses/by/3.0/
             </li>
             <div class="clear"> </div>
             <div class="submit">
-                <input type="submit" value="Sign in" name="login">
-                <h4><a href="#">Lost your Password ?</a></h4>
+                <input type="submit" value="Login" name="login">
+                <!-- <h4><a href="#">Lost your Password ?</a></h4> -->
                 <div class="clear">  </div>
             </div>
 
@@ -55,9 +55,3 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 </div>
 </div>
 <div class="clear"> </div>
-<!--- footer --->
-<div class="footer">
-    <p>Template by <a href="http://w3layouts.com">w3layouts</a></p>
-</div>
-</body>
-</html>

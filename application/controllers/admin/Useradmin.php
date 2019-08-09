@@ -9,7 +9,7 @@ class Useradmin extends Super
     {
         parent::__construct();
         $this->language       = 'english'; /** Indonesian / english **/
-        $this->tema           = "datatables"; /** datatables / flexigrid **/
+        $this->tema           = "flexigrid"; /** datatables / flexigrid **/
         $this->tabel          = "admin";
         $this->active_id_menu = "user";
         $this->nama_view      = "User";
