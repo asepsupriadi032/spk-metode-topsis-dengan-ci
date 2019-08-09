@@ -33,32 +33,39 @@
 <!--banner-->
 <body id="page-top">
 
-  <!-- Navigation -->
+ 
+<?php
+	if($row==0){ 
+?>
+<!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top">SMA PKP Jakarta Islamic School</a>
-      <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        Menu
-        <i class="fas fa-bars"></i>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav text-uppercase ml-auto">
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#profil">Profil Sekolah</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#" onclick="detailPengumuman()">SPK Penjurusan</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#fasilitas">Fasilitas Sekolah </a>
-          </li>
-<!--           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team"></a>
-          </li> -->
-          <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#kontak">Kontak Kami</a>
-          </li>
-        </ul>
-      </div>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><u><?php echo "Maaf, Saat ini belum melakukan penjurusan"; ?></u></a>
     </div>
   </nav>
+
+<?php }else{ ?>
+		<table class="table table-bordered">
+			<thead>
+				<tr>
+					<th>No</th>
+					<th>Nama</th>
+					<th>Hasil</th>
+				</tr>
+			</thead>
+			<tbody>
+				<?php 
+					$no = 1;
+					foreach ($data_spk as $key) {
+				?>
+				<tr>
+					<td><?php echo $no; ?></td>
+					<td><?php echo $key->nama_siswa?></td>
+					<td><?php echo $key->hasil ?></td>
+				</tr>
+				<?php $no++;
+					}
+				?>
+			</tbody>
+		</table>
+<?php } ?>	

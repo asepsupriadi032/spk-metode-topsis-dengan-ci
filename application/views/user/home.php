@@ -1,4 +1,5 @@
 <?php $this->load->view ("user/header") ?>
+<link rel="stylesheet" type="text/css" href="<?php echo base_url("assets/user")?>/fancybox/source/jquery.fancybox.css?v=2.1.5" media="screen" />
 <style type="text/css">
   header.masthead .intro-text .intro-heading {
     font-size: 45px; /*ukuran font header*/
@@ -121,7 +122,7 @@
   </section>
 
   <!-- Portfolio Grid -->
-  <section class="bg-light page-section" id="spkpenjurusan">
+<!--   <section class="bg-light page-section" id="spkpenjurusan">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
@@ -216,7 +217,7 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
 
   <!-- About -->
   <section class="page-section" id="fasilitas">
@@ -446,32 +447,28 @@
       </div>
       <div class="row">
         <div class="col-lg-12">
-          <form id="contactForm" name="sentMessage" novalidate="novalidate">
+          <form action="<?php echo base_url('Index/kirim_pesan') ?>" method="post">
             <div class="row">
               <div class="col-md-6">
                 <div class="form-group">
-                  <input class="form-control" id="name" type="text" placeholder="Masukkan Nama *" required="required" data-validation-required-message="Please enter your name.">
-                  <p class="help-block text-danger"></p>
+                  <input type="text" name="nama" id="nama" placeholder="Masukan nama." class="form-control">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="email" type="email" placeholder="Masukkan E-mail *" required="required" data-validation-required-message="Please enter your email address.">
-                  <p class="help-block text-danger"></p>
+                  <input type="text" name="hp" id="hp" placeholder="Masukan nomor telephon." class="form-control">
                 </div>
                 <div class="form-group">
-                  <input class="form-control" id="phone" type="tel" placeholder="Masukkan Nomor Telepon *" required="required" data-validation-required-message="Please enter your phone number.">
-                  <p class="help-block text-danger"></p>
+                  <input type="text" name="email" id="email" placeholder="Masukan email." class="form-control">
                 </div>
               </div>
               <div class="col-md-6">
                 <div class="form-group">
-                  <textarea class="form-control" id="message" placeholder="Pesan *" required="required" data-validation-required-message="Please enter a message."></textarea>
-                  <p class="help-block text-danger"></p>
+                  <textarea class="form-control" id="pesan" name="pesan" placeholder="Pesan *" ></textarea>
                 </div>
               </div>
               <div class="clearfix"></div>
               <div class="col-lg-12 text-center">
                 <div id="success"></div>
-                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Send Message</button>
+                <button id="sendMessageButton" class="btn btn-primary btn-xl text-uppercase" type="submit">Kirim Pesan</button>
               </div>
             </div>
           </form>
@@ -482,3 +479,22 @@
 
 	<!--//footer-->
 <?php $this->load->view ("user/footer")?>
+<script type="text/javascript" src="<?php echo base_url("assets/user")?>/fancybox/source/jquery.fancybox.js?v=2.1.5"></script>
+
+<script type="text/javascript">
+  function detailPengumuman(){
+    //alert(id);
+    $.fancybox.open({
+         href : "Index/penjurusan/",
+         type : 'iframe',
+         helpers : {
+             media: true 
+         },
+         width: "40%",
+         height: 800,
+         autoSize: false,
+         scrolling: false
+    });
+    
+  }
+</script>

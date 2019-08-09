@@ -26,6 +26,12 @@ class Tahun_ajaran extends Super
 
     function index(){
             $data = [];
+            // print_r($this->crud->getState()); die();
+            // if($this->crud->getState()=='read')
+                // echo "sda";
+            
+            //    // $id_detail = $this->uri->segment(4);
+            // redirect(base_url('admin/Tahun_ajaran/detail'.'/'.$id_detail));
             /** Bagian GROCERY CRUD USER**/
 
 
@@ -65,5 +71,9 @@ class Tahun_ajaran extends Super
                 ),
             );
         return $data;
+    }
+
+    public function read($id_tahun_ajaran){
+
     }
 }
