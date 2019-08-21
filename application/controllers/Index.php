@@ -30,9 +30,11 @@ class Index extends CI_Controller {
 		redirect(base_url());
 	}
 	
-	public function penjurusan(){
+	public function bu($search = null){
+		// var_dump($search); die();
 		$this->db->where('status_aktif','aktif');
 		$this->db->limit(1);
+
 		$this->db->order_by('tahun_ajaran','DESC');
 		$sql = $this->db->get('tahun_ajaran');
 
@@ -50,6 +52,35 @@ class Index extends CI_Controller {
 			$this->db->join('nilai_siswa','nilai_siswa.id_siswa=hasil_penjurusan.id_siswa');
 			$data['data_spk'] = $this->db->get('hasil_penjurusan')->result();
 		}
+		$this->load->view ('user/v_penjurusan',$data);
+	}
+
+	public function penjurusan($search = null){
+		
+
+		$this->db->where('nilai_siswa.nis',$search);
+		$this->db->join('nilai_siswa','nilai_siswa.id_siswa=hasil_penjurusan.id_siswa');
+		$this->db->join('tahun_ajaran','tahun_ajaran.id_tahun_ajaran=nilai_siswa.id_tahun_ajaran');
+		$sql = $this->db->get('hasil_penjurusan')->row();
+		$jml = count($sql);
+
+		// echo $jml; die();
+		if($jml > 0){
+			$status_aktif = $sql->status_aktif;
+			if($status_aktif == 'Aktif'){
+				$data['row'] = 1;
+				$id_siswa = $sql->id_siswa;
+				$data['key'] = $sql;
+			}else{
+				$data['row'] = 0;
+				$data['pesan'] = "Maaf, Saat ini belum melakukan penjurusan.";
+			}
+		}else{
+			$data['row'] = 0;
+			$data['pesan'] = "Maaf, data anda belum terdaftar.";
+		}
+		
+		// var_dump($sql); exit();
 		$this->load->view ('user/v_penjurusan',$data);
 	}
 	

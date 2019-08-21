@@ -40,7 +40,7 @@
 <!-- Navigation -->
   <nav class="navbar navbar-expand-lg navbar-dark fixed-top" id="mainNav">
     <div class="container">
-      <a class="navbar-brand js-scroll-trigger" href="#page-top"><u><?php echo "Maaf, Saat ini belum melakukan penjurusan"; ?></u></a>
+      <a class="navbar-brand js-scroll-trigger" href="#page-top"><u><?php echo $pesan; ?></u></a>
     </div>
   </nav>
 
@@ -48,24 +48,19 @@
 		<table class="table table-bordered">
 			<thead>
 				<tr>
-					<th>No</th>
-					<th>Nama</th>
+          <th>Tahun Ajaran</th>
+          <th>NIS</th>
+          <th>Nama</th>
 					<th>Hasil</th>
 				</tr>
 			</thead>
 			<tbody>
-				<?php 
-					$no = 1;
-					foreach ($data_spk as $key) {
-				?>
 				<tr>
-					<td><?php echo $no; ?></td>
+          <td><?php echo $key->tahun_ajaran?></td>
+          <td><?php echo $key->nis?></td>
 					<td><?php echo $key->nama_siswa?></td>
 					<td><?php echo $key->hasil ?></td>
 				</tr>
-				<?php $no++;
-					}
-				?>
 			</tbody>
 		</table>
 <?php } ?>	

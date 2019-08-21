@@ -195,8 +195,8 @@ class Penjurusan extends Super
         $p = 0;
         foreach ($rowSiswa as $key) {
                 $hasilAkhir = ROUND($dMin[$p]/($dMin[$p]+$dPlus[$p]),2);
-                
                 $this->inputHasil($key->id_siswa,$hasilAkhir);
+                $this->updateSiswa($key->id_siswa,$hasilAkhir);
             $p++;
         }
 
@@ -314,5 +314,16 @@ class Penjurusan extends Super
         $this->db->set('nilai',$nilai);
         $this->db->set('hasil',$hasil);
         return $this->db->insert('hasil_penjurusan');
+    }
+
+    public function updateSiswa($id_siswa,$nilai){
+        if($nilai >= 0.6){
+            $hasil = "IPA";
+        }else{
+            $hasil = "IPS";
+        }
+        $this->db->where('id_siswa',$id_siswa);
+        $this->db->set('hasil',$hasil);
+        return $this->db->update('nilai_siswa');
     }
 }

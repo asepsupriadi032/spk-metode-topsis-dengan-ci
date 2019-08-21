@@ -12,6 +12,7 @@
 #mainNav .navbar-nav .nav-item .nav-link {
     padding: 1.1em 1em !important;
     font-weight: bold;
+    font-size: 16px !important;
 }
 </style>
 
@@ -34,25 +35,25 @@
           <h3 class="section-subheading text-muted"></h3>
         </div>
       </div>
-      <div class="row text-center">
+      <div class="row">
         <div class="col-md-4">
-          <span class="fa-stack fa-4x">
+          <!-- <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-shopping-cart fa-stack-1x fa-inverse"></i>
-          </span>
+          </span> -->
           <h4 class="service-heading">Sejarah</h4>
           <p class="text-justify">Gagasan pendirian PKP di DKI Jakarta mendapat dukungan penuh tertuang dalam Surat Keputusan Gubernur DKI Jakarta  N. D. III.b.14/23/1973 Tanggal 18 April 1973 tentang Pengukuhan Pembentukan Pondok Karya Pembangunan DKI Jakarta sebagai sarana pendidikan dalam ruang lingkup Madrasah dan Pesantren. Didirikan Tahun 1988 dalam usianya yang ke 25,  SMA PKP telah terakreditasi A dan memperoleh sertifikat ISO 9001 : 2008.  Sampai dengan Tahun Ajaran  2013/2014  SMA PKP JIS telah meluluskan peserta didik sebanyak 3790 orang. Tiga tahun setelah berdirinya PKP, yaitu tanggal 8 April 1976 Gubernur KDKI Jakarta H. Ali Sadikin meresmikan Kampus PKP di atas areal lahan 18 hektar di Kelurahan Kelapa Dua Wetan Ciracas, Jakarta Timur. Tanggal 8 April ditetapkan sebagai Hari Lahir Kampus PKP DKI Jakarta.</p>
         </div>
         <div class="col-md-4">
-          <span class="fa-stack fa-4x">
+          <!-- <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-laptop fa-stack-1x fa-inverse"></i>
-          </span>
+          </span> -->
           <h4 class="service-heading">Visi</h4>
-          <p class="text-justify">Unggul dalam prestasi, taqwa dalam perilaku</p>
+          <p>Unggul dalam prestasi, taqwa dalam perilaku</p>
           <h4 class="service-heading">Misi</h4>
-          <p class="text-justify">
-            <ol>
+          <p>
+            <ol style="margin-left: -30px;">
               <li>Menumbuh kembangkan jati diri dan minat belajar</li>
               <li>Melaksanakan pendidikan sesuai kurikulum</li>
                 <li>Meningkatkan kualitas pendidikan dan tenaga kependidikan</li>
@@ -63,10 +64,10 @@
             </ol></p>
         </div>
         <div class="col-md-4">
-          <span class="fa-stack fa-4x">
+          <!-- <span class="fa-stack fa-4x">
             <i class="fas fa-circle fa-stack-2x text-primary"></i>
             <i class="fas fa-lock fa-stack-1x fa-inverse"></i>
-          </span>
+          </span> -->
           <h4 class="service-heading">Struktur Organisasi</h4>
           <p class="text-justify">
           	<table class="table">
@@ -122,102 +123,24 @@
   </section>
 
   <!-- Portfolio Grid -->
-<!--   <section class="bg-light page-section" id="spkpenjurusan">
+  <section class="bg-light page-section" id="penjurusan">
     <div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h2 class="section-heading text-uppercase">SPK Penjurusan</h2>
-          <h3 class="section-subheading text-muted">Menu ini digunakan untuk siswa kelas 10 yang akan menentukan jurusan.</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
+          <!-- <h3 class="section-subheading text-muted"></h3> -->
+          <center>
+            <div class="input-group mb-2 mr-sm-2 col-md-8">
+              <input type="text" class="form-control" id="search" name="search" placeholder="Masukan NIS Anda" onchange="detailPengumuman()">
+              <div class="input-group-prepend">
+                <button class="input-group-text" type="submit" onclick="detailPengumuman()"><i class="fa fa-search"></i></button>
               </div>
             </div>
-            <img class="img-fluid" src="img/portfolio/01-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Threads</h4>
-            <p class="text-muted">Illustration</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/02-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Explore</h4>
-            <p class="text-muted">Graphic Design</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/03-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Finish</h4>
-            <p class="text-muted">Identity</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/04-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Lines</h4>
-            <p class="text-muted">Branding</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/05-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Southwest</h4>
-            <p class="text-muted">Website Design</p>
-          </div>
-        </div>
-        <div class="col-md-4 col-sm-6 portfolio-item">
-          <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
-            <div class="portfolio-hover">
-              <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
-              </div>
-            </div>
-            <img class="img-fluid" src="img/portfolio/06-thumbnail.jpg" alt="">
-          </a>
-          <div class="portfolio-caption">
-            <h4>Window</h4>
-            <p class="text-muted">Photography</p>
-          </div>
+          </center>
         </div>
       </div>
     </div>
-  </section> -->
+  </section>
 
   <!-- About -->
   <section class="page-section" id="fasilitas">
@@ -233,7 +156,7 @@
           <a class="portfolio-link" data-toggle="modal" href="#portfolioModal1">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
+                <!-- <i class="fas fa-plus fa-3x"></i> -->
               </div>
             </div>
             <img class="img-fluid" src="<?php echo base_url('assets/user') ?>/fasilitas/8.jpg" alt="">
@@ -247,7 +170,7 @@
           <a class="portfolio-link" data-toggle="modal" href="#portfolioModal2">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
+                <!-- <i class="fas fa-plus fa-3x"></i> -->
               </div>
             </div>
             <img class="img-fluid" src="<?php echo base_url('assets/user') ?>/fasilitas/RAS_0106.jpg" alt="">
@@ -261,7 +184,7 @@
           <a class="portfolio-link" data-toggle="modal" href="#portfolioModal3">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
+                <!-- <i class="fas fa-plus fa-3x"></i> -->
               </div>
             </div>
             <img class="img-fluid" src="<?php echo base_url('assets/user') ?>/fasilitas/RAS_0160.jpg" alt="">
@@ -275,7 +198,7 @@
           <a class="portfolio-link" data-toggle="modal" href="#portfolioModal4">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
+                <!-- <i class="fas fa-plus fa-3x"></i> -->
               </div>
             </div>
             <img class="img-fluid" src="<?php echo base_url('assets/user') ?>/fasilitas/RAS_0113.jpg" alt="">
@@ -289,7 +212,7 @@
           <a class="portfolio-link" data-toggle="modal" href="#portfolioModal5">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
+                <!-- <i class="fas fa-plus fa-3x"></i> -->
               </div>
             </div>
             <img class="img-fluid" src="<?php echo base_url('assets/user') ?>/fasilitas/RAS_0312.jpg" alt="">
@@ -303,7 +226,7 @@
           <a class="portfolio-link" data-toggle="modal" href="#portfolioModal6">
             <div class="portfolio-hover">
               <div class="portfolio-hover-content">
-                <i class="fas fa-plus fa-3x"></i>
+                <!-- <i class="fas fa-plus fa-3x"></i> -->
               </div>
             </div>
             <img class="img-fluid" src="<?php echo base_url('assets/user') ?>/fasilitas/4.jpg" alt="">
@@ -454,7 +377,7 @@
                   <input type="text" name="nama" id="nama" placeholder="Masukan nama." class="form-control">
                 </div>
                 <div class="form-group">
-                  <input type="text" name="hp" id="hp" placeholder="Masukan nomor telephon." class="form-control">
+                  <input type="text" name="hp" id="hp" placeholder="Masukan nomor telepon." class="form-control">
                 </div>
                 <div class="form-group">
                   <input type="text" name="email" id="email" placeholder="Masukan email." class="form-control">
@@ -484,14 +407,17 @@
 <script type="text/javascript">
   function detailPengumuman(){
     //alert(id);
+
+    var search = $("#search").val();
+    // alert(search);
     $.fancybox.open({
-         href : "Index/penjurusan/",
+         href : "Index/penjurusan/"+search,
          type : 'iframe',
          helpers : {
              media: true 
          },
          width: "40%",
-         height: 800,
+         height: 300,
          autoSize: false,
          scrolling: false
     });

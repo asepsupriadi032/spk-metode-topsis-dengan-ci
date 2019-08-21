@@ -14,7 +14,7 @@ class Nilai_siswa extends Super
         $this->active_id_menu = "Nilai Siswa";
         $this->nama_view      = "Nilai Siswa";
         $this->status         = true; 
-        $this->field_tambah   = array(); 
+        $this->field_tambah   = array('id_tahun_ajaran','nis','nama_siswa','nilai_ipa','nilai_ips','nilai_minat_jurusan','nilai_iq'); 
         $this->field_edit     = array(); 
         $this->field_tampil   = array(); 
         $this->folder_upload  = 'assets/uploads/files';
@@ -34,6 +34,7 @@ class Nilai_siswa extends Super
             **/
             // $this->crud->set_relation('id_kategori','kategori','nama_kategori');
              $this->crud->set_relation('id_tahun_ajaran','tahun_ajaran','tahun_ajaran');
+             $this->crud->set_relation('id_siswa','hasil_penjurusan','hasil');
             /** Upload **/
             // $this->crud->set_field_upload('nama_field_upload',$this->folder_upload);  
             //$this->crud->set_field_upload('gambar',$this->folder_upload);  

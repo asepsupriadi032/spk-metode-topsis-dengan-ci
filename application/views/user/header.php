@@ -23,10 +23,16 @@
 
   <!-- Custom styles for this template -->
   <link href="<?php echo base_url('assets/user')?>/css/agency.min.css" rel="stylesheet">
+  <link href="<?php echo base_url('assets/user')?>/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
   <style type="text/css">
   	header.masthead{
   		background-image: url('<?php echo base_url('assets/user/fasilitas/abc.png') ?>') !important;
   	}
+
+    #mainNav .navbar-brand {
+    font-size: 1.3em !important;
+    -webkit-transition: all .3s;
+    transition: all .3s;
   </style>
 
 </head>
@@ -47,13 +53,13 @@
             <a class="nav-link js-scroll-trigger" href="#profil">Profil Sekolah</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#" onclick="detailPengumuman()">SPK Penjurusan</a>
+            <a class="nav-link js-scroll-trigger" href="#penjurusan">SPK Penjurusan</a>
           </li>
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#fasilitas">Fasilitas Sekolah </a>
           </li>
 <!--           <li class="nav-item">
-            <a class="nav-link js-scroll-trigger" href="#team"></a>
+            <a class="nav-link js-scroll-trigger" href="#team" onclick="detailPengumuman()"></a>
           </li> -->
           <li class="nav-item">
             <a class="nav-link js-scroll-trigger" href="#kontak">Kontak Kami</a>
