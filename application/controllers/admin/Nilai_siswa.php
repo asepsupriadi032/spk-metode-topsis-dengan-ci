@@ -14,9 +14,9 @@ class Nilai_siswa extends Super
         $this->active_id_menu = "Nilai Siswa";
         $this->nama_view      = "Nilai Siswa";
         $this->status         = true; 
-        $this->field_tambah   = array('id_tahun_ajaran','NIS','nama_siswa','nilai_ipa','nilai_ips','nilai_minat_jurusan','nilai_iq'); 
-        $this->field_edit     = array(); 
-        $this->field_tampil   = array(); 
+        $this->field_tambah   = array('id_tahun_ajaran','nis','nama_siswa','nilai_ipa','nilai_ips','nilai_minat_jurusan','nilai_iq'); 
+        $this->field_edit     = array('id_tahun_ajaran','nis','nama_siswa','nilai_ipa','nilai_ips','nilai_minat_jurusan','nilai_iq'); 
+        $this->field_tampil   = array('id_tahun_ajaran','nis','nama_siswa','nilai_ipa','nilai_ips','nilai_minat_jurusan','nilai_iq','id_hasil'); 
         $this->folder_upload  = 'assets/uploads/files';
         $this->add            = true;
         $this->edit           = true;
@@ -34,16 +34,30 @@ class Nilai_siswa extends Super
             **/
             // $this->crud->set_relation('id_kategori','kategori','nama_kategori');
              $this->crud->set_relation('id_tahun_ajaran','tahun_ajaran','tahun_ajaran');
-             $this->crud->set_relation('id_siswa','hasil_penjurusan','hasil');
+             $this->crud->set_relation('id_hasil','hasil_penjurusan','hasil');
             /** Upload **/
             // $this->crud->set_field_upload('nama_field_upload',$this->folder_upload);  
             //$this->crud->set_field_upload('gambar',$this->folder_upload);  
             
             /** Ubah Nama yang akan ditampilkan**/
             // $this->crud->display_as('nama','Nama Setelah di Edit')
-            $this->crud->display_as('id_tahun_ajaran','Tahun Ajaran'); 
+            //untuk merubah tulisan jadi font besar
+            $this->crud->display_as('id_tahun_ajaran','TAHUN AJARAN'); 
+            $this->crud->display_as('nis','NIS'); 
+            $this->crud->display_as('nama_siswa','NAMA SISWA'); 
+            $this->crud->display_as('nilai_ipa','NILAI IPA'); 
+            $this->crud->display_as('nilai_ips','NILAI IPS'); 
+            $this->crud->display_as('nilai_iq','NILAI IQ'); 
+            $this->crud->display_as('nilai_minat_jurusan','NILAI MINAT JURUSAN'); 
+            $this->crud->display_as('id_hasil','HASIL'); 
             
             /** Akhir Bagian GROCERY CRUD Edit Oleh User**/
+            $id_tahun_ajaran = $this->uri->segment(4);
+            // print_r($id_tahun_ajaran); die();
+            if(!empty($id_tahun_ajaran)){
+                
+            $this->crud->where('nilai_siswa.id_tahun_ajaran',$id_tahun_ajaran);
+            }
             $data = array_merge($data,$this->generateBreadcumbs());
             $data = array_merge($data,$this->generateData());
             $this->generate();
