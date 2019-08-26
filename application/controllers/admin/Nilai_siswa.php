@@ -14,7 +14,7 @@ class Nilai_siswa extends Super
         $this->active_id_menu = "Nilai Siswa";
         $this->nama_view      = "Nilai Siswa";
         $this->status         = true; 
-        $this->field_tambah   = array('id_tahun_ajaran','nis','nama_siswa','nilai_ipa','nilai_ips','nilai_minat_jurusan','nilai_iq'); 
+        $this->field_tambah   = array('id_tahun_ajaran','NIS','nama_siswa','nilai_ipa','nilai_ips','nilai_minat_jurusan','nilai_iq'); 
         $this->field_edit     = array(); 
         $this->field_tampil   = array(); 
         $this->folder_upload  = 'assets/uploads/files';
