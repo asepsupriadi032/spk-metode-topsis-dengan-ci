@@ -15,7 +15,7 @@ class Index extends CI_Controller {
 	}
 
 	public function kirim_pesan(){
-		var_dump($_POST);
+		// var_dump($_POST);
 		$nama = $this->input->post('nama');
         $hp = $this->input->post('hp');
         $email = $this->input->post('email');

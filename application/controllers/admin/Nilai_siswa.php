@@ -55,8 +55,9 @@ class Nilai_siswa extends Super
             $id_tahun_ajaran = $this->uri->segment(4);
             // print_r($id_tahun_ajaran); die();
             if(!empty($id_tahun_ajaran)){
-                
-            $this->crud->where('nilai_siswa.id_tahun_ajaran',$id_tahun_ajaran);
+                if($id_tahun_ajaran != 'success'){
+                    $this->crud->where('nilai_siswa.id_tahun_ajaran',$id_tahun_ajaran);
+                }                
             }
             $data = array_merge($data,$this->generateBreadcumbs());
             $data = array_merge($data,$this->generateData());
