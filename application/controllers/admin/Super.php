@@ -13,6 +13,7 @@ class Super extends CI_Controller
     protected $field_tambah;
     protected $field_edit;
     protected $field_tampil;
+    protected $field_view;
     protected $folder_upload;
     protected $add;
     protected $edit;
@@ -46,6 +47,7 @@ class Super extends CI_Controller
             $this->crud->set_language($this->language);
             $this->crud->add_fields($this->field_tambah);
             $this->crud->edit_fields($this->field_edit);
+            $this->crud->set_read_fields($this->field_view);
             $this->crud->columns($this->field_tampil);
             //bagian status
             if($this->status){
