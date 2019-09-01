@@ -38,7 +38,7 @@ class Nilai_siswa extends Super
             /** Upload **/
             // $this->crud->set_field_upload('nama_field_upload',$this->folder_upload);  
             //$this->crud->set_field_upload('gambar',$this->folder_upload);  
-            
+            $this->crud->required_fields('nis');
             /** Ubah Nama yang akan ditampilkan**/
             // $this->crud->display_as('nama','Nama Setelah di Edit')
             //untuk merubah tulisan jadi font besar
