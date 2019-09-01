@@ -19,8 +19,8 @@ class HasilPenjurusan extends Super
         $this->field_tampil   = array(); 
         $this->folder_upload  = 'assets/uploads/files';
         $this->add            = false;
-        $this->edit           = true;
-        $this->delete         = true;
+        $this->edit           = false;
+        $this->delete         = false;
         $this->crud;
     }
 

@@ -49,7 +49,6 @@ class Penjurusan extends Super
             
             /** Ubah Nama yang akan ditampilkan**/
             // $this->crud->display_as('nama','Nama Setelah di Edit')
-            //     ->display_as('email','Email Setelah di Edit'); 
             
             /** Akhir Bagian GROCERY CRUD Edit Oleh User**/
             $data = array_merge($data,$this->generateBreadcumbs());
@@ -106,7 +105,7 @@ class Penjurusan extends Super
         $getTahun = $this->db->get('tahun_ajaran')->row();
         // var_dump($getTahun); die();
         if($getTahun->status==1){
-            redirect(base_url('admin/Nilai_siswa/index'."/".$id_tahun_ajaran));
+            redirect(base_url('admin/Nilai_siswa2/index'."/".$id_tahun_ajaran));
         }else{
             $this->db->where('id_tahun_ajaran',$id_tahun_ajaran);
             $this->db->set('status',1);

@@ -52,13 +52,12 @@ class Nilai_siswa extends Super
             $this->crud->display_as('id_hasil','HASIL'); 
             
             /** Akhir Bagian GROCERY CRUD Edit Oleh User**/
-            $id_tahun_ajaran = $this->uri->segment(4);
-            // print_r($id_tahun_ajaran); die();
-            if(!empty($id_tahun_ajaran)){
-                if($id_tahun_ajaran != 'success'){
-                    $this->crud->where('nilai_siswa.id_tahun_ajaran',$id_tahun_ajaran);
-                }                
-            }
+            // $id_tahun_ajaran = $this->uri->segment(4);
+            // if(empty($id_tahun_ajaran)){
+            //     if($id_tahun_ajaran != 'success'){
+            //         $this->crud->where('nilai_siswa.id_tahun_ajaran',$id_tahun_ajaran);
+            //     }                
+            // }
             $data = array_merge($data,$this->generateBreadcumbs());
             $data = array_merge($data,$this->generateData());
             $this->generate();
